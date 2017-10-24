@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('002.jpg',0)  # open file ;  0 to tell the computer that image is  Gray Scale
+img = cv2.imread('001.jpg',0)  # open file ;  0 to tell the computer that image is  Gray Scale
 
 Pixel = img.shape  #get the size of image
 x = Pixel[0] #x of image
