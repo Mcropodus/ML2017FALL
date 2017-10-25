@@ -12,20 +12,7 @@
  
 ![Alt text](https://parentinghealthybabies.com/wp-content/uploads/2012/12/apple-16.jpg) 
 
-<table border="1">
-　<tr>
-　<td>Title</td>
-　<td>Column Title 1</td>
-  <td>Column Title 2</td>
-　</tr>
-　<tr>
-　<td>Row Title 1</td>
-　<td>blah</td>
-  <td>blah</td>
-　</tr>
-  <tr>
-  <td>Row Title 2</td>
-  <td>blah</td>
-  <td>blah</td>
-  </tr>
-</table>
+| Title | Column Title 1 | Column Title 2 |
+| ------| ------ | ------ |
+| Row Title 1 | blah | blah |
+| Row Title 2 | blah | blah |
