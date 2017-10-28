@@ -20,12 +20,17 @@ for i in range(x):
     for j in range(y):
         img[i][j] = img[i][j] % 16
 
-for i in range(0, x, int(a)):
+for i in range(0, x, int(a)):  #the way to count the "img" and "DM" is wrong
+    k = 0
+    l = 0
     for j in range(0, y, int(b)):
-        if img[i][j] > DM[i][j]:
+        if img[i][j] > DM[k][l]:
             img[i][j] = 1
         else:
             img[i][j] = 0
+    k = k + 1
+    l = l + 1
+
 
 cv2.imshow('img',img) #show the result
 cv2.waitKey()
