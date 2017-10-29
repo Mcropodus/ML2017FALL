@@ -5,8 +5,6 @@ img = cv2.imread('001.jpg',0)  # open file ;  0 to tell the computer that image 
 Pixel = img.shape  #get the size of image
 x = Pixel[0] #x of image 
 y = Pixel[1] #y for image
-a = x/4
-b = y/4
 #for i in range(x):
    # for j in range(y):
         #if img[i][j] < 128:    #if the pixel in range 0 to 127, change to 0 for black
@@ -18,18 +16,15 @@ DM = [[0,8,2,10],[12,4,14,6],[3,11,1,9],[15,7,13,5]] #Dither Matrix
 
 for i in range(x):
     for j in range(y):
-        img[i][j] = img[i][j] % 16
+        img[i][j] = img[i][j] * 16 / 255
 
-for i in range(0, x, int(a)):  #the way to count the "img" and "DM" is wrong
-    k = 0
-    l = 0
-    for j in range(0, y, int(b)):
-        if img[i][j] > DM[k][l]:
-            img[i][j] = 1
+
+for i in range(x):  #the way to count the "img" and "DM" is wrong
+    for j in range(y):
+        if img[i][j] > DM[i%4][j%4]:
+            img[i][j] = 255
         else:
             img[i][j] = 0
-    k = k + 1
-    l = l + 1
 
 
 cv2.imshow('img',img) #show the result
