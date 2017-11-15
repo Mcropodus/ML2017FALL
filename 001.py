@@ -1,4 +1,5 @@
 import cv2
+from PIL import Image
 
 img = cv2.imread('001.jpg',0)  # open file ;  0 to tell the computer that image is  Gray Scale
 
@@ -19,7 +20,7 @@ for i in range(x):
         img[i][j] = img[i][j] * 16 / 255
 
 
-for i in range(x):  #the way to count the "img" and "DM" is wrong
+for i in range(x):
     for j in range(y):
         if img[i][j] > DM[i%4][j%4]:
             img[i][j] = 255
@@ -30,7 +31,26 @@ for i in range(x):  #the way to count the "img" and "DM" is wrong
 cv2.imshow('img',img) #show the result
 cv2.waitKey()
 
-cv2.imwrite('result.jpg',img) #save the file
+img = Image.open('004.jpg').convert('L')
+img.show()
+
+x = img.size[0]
+y = img.size[1]
+
+for i in range(x):
+    for j in range(y):
+        rgba = img.getpixel((i,j))
+        print(rgba)
+        #print(rgba)
+        rgba = (255 - rgba[0],
+                255 - rgba[1],
+                255 - rgba[2])
+        img.putpixel((i, j), rgba)
+
+img.show()
+img.save("test.jpg")
+
+
 
 
 
