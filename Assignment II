@@ -2,7 +2,7 @@
 
 import pyaudio, wave
 import numpy as np
-import matplotlib.pyplot as pl
+import scipy.io.wavfile as wf
 
 # 相關設定
 
@@ -14,61 +14,16 @@ FORMAT = pyaudio.paInt16
 RATE = 16200
 # 聲道
 CHANNELS = 2
-# 錄製秒數
-RECORD_SECONDS = 10
+# 秒數
+SECONDS = 1
+#振幅
+A = 20
 
 
-# 錄製函數
-def record_wave():
-    # pa = pyaudio.PyAudio()
-    # stream = pa.open(format=FORMAT,
-    #                  channels=CHANNELS,
-    #                  rate=RATE,
-    #                  input=True,
-    #                  frames_per_buffer=CHUNK)
-    # print('錄製時間 : %d\n音框數 : %d\n取樣率 : %d\n錄音中... ' % (RECORD_SECONDS, CHUNK, RATE))
-    # buffer = []
-    # for i in range(0, int(RATE/CHUNK*RECORD_SECONDS)):
-    #     audio_data = stream.read(CHUNK)
-    #     buffer.append(audio_data)
-    # print('錄音結束')
-    # stream.stop_stream()
-    # stream.close()
-    # pa.terminate()
+a1 = [262,294,330,349,392,440,494] #4
+a2 = [65,73,82,87,98,110,124] #2
 
-    Fs = 8000
-    f = 5
-    sample = 16200/CHUNK
-    x = np.arange(sample)
-    y = 20*np.sin(2 * np.pi * f * x / Fs)
-    y[:] = 32767 * y
-    pl.subplot(2,1,1).plot(x, y)
-    pl.xlabel('sample(n)')
-    pl.ylabel('voltage(V)')
+data=[]
 
-
-    A = 20
-    fre = 5  #幾個波峰
-    Fs = 8000 #一秒多少sample
-    Sample = 16000 #取樣
-    t = np.arange(Sample) #時間
-
-    Signal = np.sin(2 * np.pi * fre * t / Fs)
-    Signal[:] = 32767 * Signal
-    pl.subplot(2,1,2).plot(t, Signal)
-    pl.xlabel('sample(n)')
-    pl.ylabel('voltage(V)')
-    pl.show()
-    print Signal[:]
-    ## 寫入 Wave 檔案
-    wf = wave.open('record.wav', 'wb')
-    wf.setnchannels(CHANNELS)
-    wf.setsampwidth(pyaudio.get_sample_size(FORMAT))
-    wf.setframerate(RATE)
-    wf.writeframes(b''.join(Signal))
-    wf.close()
-
-
-# 程式進入點
-if __name__ == '__main__':
-    record_wave()
+data = (A * np.sin(2 * np.pi * a1[0]/RATE * np.array(range(16200*SECONDS)))).astype(np.float32)
+wf.write('test.wav',RATE,data)
