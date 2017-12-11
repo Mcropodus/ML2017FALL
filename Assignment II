@@ -8,8 +8,6 @@ import scipy.io.wavfile as wf
 
 # 音框/s
 CHUNK = 1024
-# 錄製模式
-FORMAT = pyaudio.paInt16
 # 取樣率
 RATE = 16200
 # 聲道
@@ -30,6 +28,16 @@ a2 = [65,73,82,87,98,110,124] #2
 f1 = [Data(a1[0]), Data(a1[1]), Data(a1[2]), Data(a1[3]), Data(a1[4]), Data(a1[5]), Data(a1[6])]
 f2 = [Data(a2[0]), Data(a2[1]), Data(a2[2]), Data(a2[3]), Data(a2[4]), Data(a2[5]), Data(a2[6])]
 
+music1 = []
+music2 = []
+
+music1.extend([f1[0],f1[0],f1[4],f1[4],f1[5],f1[5],f1[4]])
+music2.extend([f2[0],f2[0],f2[4],f2[4],f2[5],f2[5],f2[4]])
+
+music_mix = music1 + music2
+#print array
+
 #data = (A * np.sin(2 * np.pi * a1[0]/RATE * np.array(range(16200*SECONDS)))).astype(np.float32)
 #wf.write('test.wav',RATE,data)
+wf.write('test.wav', RATE, np.array(music_mix))
 
