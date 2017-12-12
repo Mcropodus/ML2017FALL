@@ -13,29 +13,46 @@ RATE = 16200
 # 聲道
 CHANNELS = 2
 # 秒數
-SECONDS = 1
+SECONDS = 0.5
 #振幅
 A = 20
 
 def Data(f):
     data = []
-    data = (A*np.sin(2*np.pi*f/RATE*np.array(range(RATE*SECONDS)))).astype(np.float32)
+    data = (A*np.sin(2*np.pi*f/RATE*np.array(np.arange(RATE*SECONDS)))).astype(np.float32)
     return data
 
 a1 = [262,294,330,349,392,440,494] #4
 a2 = [65,73,82,87,98,110,124] #2
 
-f1 = [Data(a1[0]), Data(a1[1]), Data(a1[2]), Data(a1[3]), Data(a1[4]), Data(a1[5]), Data(a1[6])]
-f2 = [Data(a2[0]), Data(a2[1]), Data(a2[2]), Data(a2[3]), Data(a2[4]), Data(a2[5]), Data(a2[6])]
+#f1 = [Data(a1[0]), Data(a1[1]), Data(a1[2]), Data(a1[3]), Data(a1[4]), Data(a1[5]), Data(a1[6])]
+#f2 = [Data(a2[0]), Data(a2[1]), Data(a2[2]), Data(a2[3]), Data(a2[4]), Data(a2[5]), Data(a2[6])]
 
 music1 = []
+music1.extend(Data(a1[0]))
+music1.extend(Data(a1[0]))
+music1.extend(Data(a1[4]))
+music1.extend(Data(a1[4]))
+music1.extend(Data(a1[5]))
+music1.extend(Data(a1[5]))
+music1.extend(Data(a1[4]))
+
+
 music2 = []
+music2.extend(Data(a2[0]))
+music2.extend(Data(a2[0]))
+music2.extend(Data(a2[4]))
+music2.extend(Data(a2[4]))
+music2.extend(Data(a2[5]))
+music2.extend(Data(a2[5]))
+music2.extend(Data(a2[4]))
 
-music1.extend([f1[0],f1[0],f1[4],f1[4],f1[5],f1[5],f1[4]])
-music2.extend([f2[0],f2[0],f2[4],f2[4],f2[5],f2[5],f2[4]])
+music_mix = []
 
-music_mix = music1 + music2
-#print array
+for i in range(len(music1)):
+    music_mix.extend([music1[i],music2[i]])
+
+#print music_mix
 
 #data = (A * np.sin(2 * np.pi * a1[0]/RATE * np.array(range(16200*SECONDS)))).astype(np.float32)
 #wf.write('test.wav',RATE,data)
