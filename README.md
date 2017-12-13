@@ -18,9 +18,9 @@ Assignment II
  
  再將一段音樂(作業使用小星星片段)extend至一個list
  
- ![Alt text](EXTEND1.jpg)
+![Alt text](EXTEND1.jpg)
  
- ![Alt text](EXTEND2.jpg)
+![Alt text](EXTEND2.jpg)
  
  
  兩段音樂extend到list時，訊號皆經過frequencies specify
@@ -29,7 +29,7 @@ Assignment II
  
  公式:A*sin(2*pi*f*t)
  
- ![Alt text](FUNCTION 1.jpg) 
+![Alt text](FUNCTION 1.jpg) 
  
  
  再將兩個list中的data合併:
