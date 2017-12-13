@@ -59,7 +59,7 @@ Assignment II
     因用a.dot(b)的函數相乘程式無法跑，所以改用numpy中的multiply
     
     
-    ![Alt text](https://i.imgur.com/JrBoPxg.jpg)
+    ![Alt text](https://i.imgur.com/JrBoPxg.jpg) 
 
 遇到的問題:
 
