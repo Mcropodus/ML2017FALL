@@ -45,7 +45,7 @@ Assignment I
   <li>存檔</li>
 </ol>
 
-![Alt text](001.jpg)
+![Alt text](001.jpg) 
 ![Alt text](result.jpg)
 
 -----------------------------------------------------------------
