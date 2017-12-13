@@ -31,8 +31,8 @@ def FreSpecify(f):
     data = (A*np.sin(2*np.pi*f/RATE*np.array(np.arange(RATE*SECONDS)))).astype(np.float32)
     return data
 
-a1 = [262,294,330,349,392,440,494] #4
-a2 = [65,73,82,87,98,110,124] #2
+a1 = [131,147,165,175,196,220,247] #4
+a2 = [33,37,41,44,49,55,62] #2
 
 #f1 = [Data(a1[0]), Data(a1[1]), Data(a1[2]), Data(a1[3]), Data(a1[4]), Data(a1[5]), Data(a1[6])]
 #f2 = [Data(a2[0]), Data(a2[1]), Data(a2[2]), Data(a2[3]), Data(a2[4]), Data(a2[5]), Data(a2[6])]
