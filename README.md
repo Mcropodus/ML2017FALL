@@ -45,7 +45,15 @@ Assignment II
   
      music_mix.extend([music1[i],music2[i]])
      
+     
+     
+5.Frequency Modulation:
+
+    將訊號再做一次cos轉換，再將原本的sin(t)和轉換的cos(wt)相乘，調整原始訊號之頻率
     
+    (以設計好函式，但尚未相乘)
+    
+    ![Alt text](https://i.imgur.com/I8QAqGn.jpg)
 
 遇到的問題:
 
