@@ -54,6 +54,12 @@ Assignment II
         
     ![Alt text](https://i.imgur.com/I8QAqGn.jpg)
     ![Alt text](https://i.imgur.com/Sa4hofE.jpg)
+    
+    
+    因用a.dot(b)的函數相乘程式無法跑，所以改用numpy中的multiply
+    
+    
+    ![Alt text](https://i.imgur.com/JrBoPxg.jpg)
 
 遇到的問題:
 
@@ -62,6 +68,8 @@ Assignment II
   <li>兩段音樂單獨播放的時候，旋律聽起來都正常；但合併在一起時感覺訊號受到干擾(音樂聽起來很奇怪)</li>
   
   <li>sin(t)和轉換的cos(wt)相乘後程式錯誤，程式無法執行</li>
+  
+  <li>換成numpy中的multiply雖然程式成功run了，但音訊沒有聲音</li>
 
 ---------------------------------------------------------------
 
