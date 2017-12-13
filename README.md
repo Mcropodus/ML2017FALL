@@ -18,7 +18,7 @@ Assignment II
  兩段音樂extend到list時，訊號皆經過frequencies specify
  將訊號做轉換
  公式:A*sin(2*pi*f*t)
- ![Alt text](FUNCTION 1.jpg)
+ ![Alt text](FUNCTION 1.jpg) 
  
  再將兩個list中的data合併:
   music_mix = []
