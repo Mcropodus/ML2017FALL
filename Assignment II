@@ -17,18 +17,24 @@ SECONDS = 0.5
 #振幅
 A = 20
 
-def FreModulation(f):
-    result = []
-    data = RATE*SECONDS
-    for i in np.arange(RATE*SECONDS):
-        result = np.cos(2*np.pi*f*SECONDS)
-        f += (data*100)
-        data -= 1
-    return result
+
+
+def FreModulation(f, Data):
+    # result = []
+    # for i in range(10):
+    #     result[i] = np.sin(2*np.pi*f*np.cos(2*np.pi*Data*i)/RATE*i).astype(np.float32)
+
+    data = []
+    T = np.array(np.arange(RATE*SECONDS))
+    F = f/RATE
+    data = (A*np.cos(2*np.pi*F*T)).astype(np.float32)
+    return data
 
 def FreSpecify(f):
     data = []
-    data = (A*np.sin(2*np.pi*f/RATE*np.array(np.arange(RATE*SECONDS)))).astype(np.float32)
+    F = f/RATE
+    T = np.array(np.arange(RATE*SECONDS))
+    data = (A*np.sin(2*np.pi*F*T)).astype(np.float32)
     return data
 
 a1 = [262,294,330,349,392,440,494] #4
@@ -83,4 +89,30 @@ for i in range(len(music1)):
 #wf.write('test.wav',RATE,data)
 wf.write('test.wav', RATE, np.array(music_mix))
 
+FreMod = []
+FreMod1 = []
+FreMod2 = []
 
+mel = [0,0,4,4,5,5,4,4,3,3,2,2,1,1,0]
+
+
+for i in mel:
+    FreMod.extend(FreModulation(a1[i],100))
+for i in mel:
+    FreMod1.extend(FreModulation(a1[i],500))
+for i in mel:
+    FreMod2.extend(FreModulation(a1[i],800))
+
+a = np.array(music1)
+b1 = np.array(FreMod)
+b2 = np.array(FreMod1)
+b3 = np.array(FreMod2)
+
+m1 = a.dot(b1)
+m2 = a.dot(b2)
+m3 = a.dot(b3)
+
+wf.write('OM.wav',RATE,np.array(music1))
+wf.write('FM100.wav',RATE,np.array(m1))
+wf.write('FM500.wav',RATE,np.array(m2))
+wf.write('FM800.wav',RATE,np.array(m3))
