@@ -1,3 +1,55 @@
+
+Assignment II
+
+軟體:python
+使用套件:numpy,scipy
+
+1.製作音樂訊號
+
+ 利用9個level中的第2和第4個level組合成一段音訊
+ 
+ 
+ (將兩個level各自存放至list)
+ 
+ a1 = [131,147,165,175,196,220,247] (第四)
+ 
+ a2 = [33,37,41,44,49,55,62] (第二)
+ 
+ 
+ 再將一段音樂(作業使用小星星片段)extend至一個list
+ 
+![Alt text](https://i.imgur.com/lmQBM5A.jpg)
+ 
+![Alt text](https://i.imgur.com/VfuRDO4.jpg)
+ 
+ 
+ 兩段音樂extend到list時，訊號皆經過frequencies specify
+ 
+ 將訊號做轉換
+ 
+ 公式:A*sin(2*pi*f*t)
+ 
+![Alt text](https://i.imgur.com/6czXeCr.jpg) 
+ 
+ 
+ 再將兩個list中的data合併:
+ 
+  music_mix = []
+  
+  
+  for i in range(len(music1)):
+  
+    music_mix.extend([music1[i],music2[i]])
+    
+
+遇到的問題:
+
+ <li>一開始將frequencies specify過的data一起存入一個list，但程式無法run，因此改成進行extend的時候才同時轉換。</li>
+ 
+ <li>兩段音樂單獨播放的時候，旋律聽起來都正常；但合併在一起時感覺訊號受到干擾(音樂聽起來很奇怪)</li>
+
+---------------------------------------------------------------
+
 Assignment I
 
 灰階照片轉黑白照片
@@ -11,7 +63,7 @@ Assignment I
   <li>存檔</li>
 </ol>
 
-![Alt text](001.jpg)
+![Alt text](001.jpg) 
 ![Alt text](result.jpg)
 
 -----------------------------------------------------------------
