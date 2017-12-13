@@ -16,14 +16,14 @@ Assignment II
  a2 = [33,37,41,44,49,55,62] (第二)
  
  
- 再將一段音樂(作業使用小星星片段)extend至一個list
+ 2.再將一段音樂(作業使用小星星片段)extend至一個list
  
 ![Alt text](https://i.imgur.com/lmQBM5A.jpg)
  
 ![Alt text](https://i.imgur.com/VfuRDO4.jpg)
  
  
- 兩段音樂extend到list時，訊號皆經過frequencies specify
+ 3.兩段音樂extend到list時，訊號皆經過frequencies specify
  
  將訊號做轉換
  
@@ -32,7 +32,7 @@ Assignment II
 ![Alt text](https://i.imgur.com/6czXeCr.jpg) 
  
  
- 再將兩個list中的data合併:
+ 4.再將兩個list中的data合併:
  
   music_mix = []
   
