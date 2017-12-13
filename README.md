@@ -51,15 +51,17 @@ Assignment II
 
     將訊號再做一次cos轉換，再將原本的sin(t)和轉換的cos(wt)相乘，調整原始訊號之頻率
     
-    (已設計好函式，但尚未相乘)
-    
+        
     ![Alt text](https://i.imgur.com/I8QAqGn.jpg)
+    ![Alt text](https://i.imgur.com/Sa4hofE.jpg)
 
 遇到的問題:
 
   <li>一開始將frequencies specify過的data一起存入一個list，但程式無法run，因此改成進行extend的時候才同時轉換。</li>
  
   <li>兩段音樂單獨播放的時候，旋律聽起來都正常；但合併在一起時感覺訊號受到干擾(音樂聽起來很奇怪)</li>
+  
+  <li>sin(t)和轉換的cos(wt)相乘後程式錯誤，程式無法執行</li>
 
 ---------------------------------------------------------------
 
