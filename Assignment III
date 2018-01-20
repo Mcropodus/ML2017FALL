@@ -1,0 +1,9 @@
+from PIL import Image
+
+def SNR(i1, i2):
+    
+
+reference = Image.open('i1.jpg').convert('L')
+target = Image.open('i2.jpg').convert('L')
+
+reference.show()
