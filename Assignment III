@@ -1,7 +1,20 @@
 from PIL import Image
 
 def SNR(i1, i2):
-    
+    x = i1.size[0]
+    y = i1.size[1]
+
+    a = []
+    b = []
+
+    result = []
+    for i in range(x*y):
+        a[i] = i2[i]*i2[i]
+        b[i] = (i1-i2)*(i1-i2)
+        result[i] = a[i]/b[i]
+
+
+
 
 reference = Image.open('i1.jpg').convert('L')
 target = Image.open('i2.jpg').convert('L')
