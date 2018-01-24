@@ -1,18 +1,41 @@
 from PIL import Image
 import numpy as np
 
-def SNR(i1, i2):
-    x = i1.size[0]
-    y = i1.size[1]
+def Sequential(i1, i2):
+    min_MAD1 = 99999
+    min_MAD2 = 99999
+    for i in range(-15, 15):
+      for j in range(-15, 15):
+          cur_MAD1 = i1(i, j)
+          if cur_MAD1 < min_MAD1:
+              min_MAD1 = cur_MAD1
+              u = i
+              v = j
+    for i in range(-15, 15):
+      for j in range(-15, 15):
+          cur_MAD2 = i2(i, j)
+          if cur_MAD2 < min_MAD2:
+              min_MAD2 = cur_MAD2
+              u = i
+              v = j
 
-    a = []
-    b = []
+    i1.show()
 
-    result = []
-    for i in range(x*y):
-        a[i] = i2[i]*i2[i]
-        b[i] = (i1-i2)*(i1-i2)
-        result[i] = a[i]/b[i]
+def TwoD_logarithm(i1, i2):
+
+
+#def SNR(i1, i2):
+#    x = i1.size[0]
+#    y = i1.size[1]
+#
+#    a = []
+#    b = []
+#
+#    result = []
+#    for i in range(x*y):
+#        a[i] = i2[i]*i2[i]
+#        b[i] = (i1-i2)*(i1-i2)
+#        result[i] = a[i]/b[i]
 
 
 
@@ -23,5 +46,6 @@ im1 = np.asarray(reference)
 im2 = np.asarray(target)
 
 #reference.show()
-
-SNR(im1, im2)
+Sequential(reference, target)
+#TwoD_logarithm(im1, im2)
+#SNR(im1, im2)
