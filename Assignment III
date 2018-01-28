@@ -5,13 +5,30 @@ def Sequential(i1, i2):
     im1 = np.asarray(i1) # reference
     im2 = np.asarray(i2) # target
 
-    macroblock = [] # 16*16 matrix to check reference and target
-    macroblock.append([])
-    macroblock.append([])
+    x = i1.size[0]
+    y = i1.size[1]
+    p = 15 # 2p + 1 = 31, p = 15
 
-    for i in range(16): # initial the macroblock
-        macroblock[0].append(0)
-        macroblock[1].append(0)
+    a = []
+    a.append([])
+    a.append([])
+    b = []
+    b.append([])
+    b.append([])
+
+    for i in range(1000): # initial a and b
+        a[0].append(0)
+        a[1].append(0)
+        b[0].append(0)
+        b[1].append(0)
+
+    for i in range(x):
+        for j in range(y):
+            a[p+1+i, p+1+j] =im1[i, j]
+            b[p+1+i, p+1+j] =im2[i, j]
+    
+    a.show()
+    b.show()
 
 
     # min_MAD1 = 99999
