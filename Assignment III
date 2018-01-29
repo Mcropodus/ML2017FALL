@@ -27,8 +27,16 @@ def Sequential(i1, i2):
             a[p+1+i, p+1+j] =im1[i, j]
             b[p+1+i, p+1+j] =im2[i, j]
     
-    a.show()
-    b.show()
+    # a.show()
+    # b.show()
+    img = []
+    img.append([])
+    img.append([])
+
+    for i in range(x): # initial img
+        img[0].append(0)
+    for i in range(y):
+        img[1].append(0)
 
 
     # min_MAD1 = 99999
@@ -53,18 +61,18 @@ def Sequential(i1, i2):
 def TwoD_logarithm(i1, i2):
 
 
-#def SNR(i1, i2):
-#    x = i1.size[0]
-#    y = i1.size[1]
-#
-#    a = []
-#    b = []
-#
-#    result = []
-#    for i in range(x*y):
-#        a[i] = i2[i]*i2[i]
-#        b[i] = (i1-i2)*(i1-i2)
-#        result[i] = a[i]/b[i]
+def SNR(i1, i2):
+   x = i1.size[0]
+   y = i1.size[1]
+
+   a = []
+   b = []
+
+   result = []
+   for i in range(x*y):
+       a[i] = i2[i]*i2[i]
+       b[i] = (i1-i2)*(i1-i2)
+       result[i] = a[i]/b[i]
 
 
 
