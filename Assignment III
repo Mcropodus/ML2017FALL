@@ -7,7 +7,7 @@ def Sequential(i1, i2):
 
     x = i1.size[0]
     y = i1.size[1]
-    p = 15 # 2p + 1 = 31, p = 15
+    p = 16 # 2p + 1 = 31, p = 15
 
     a = []
     a.append([])
@@ -24,8 +24,8 @@ def Sequential(i1, i2):
 
     for i in range(x):
         for j in range(y):
-            a[p+1+i, p+1+j] =im1[i, j]
-            b[p+1+i, p+1+j] =im2[i, j]
+            a[p+i, p+j] =im1[i, j]
+            b[p+i, p+j] =im2[i, j]
     
     # a.show()
     # b.show()
@@ -37,7 +37,9 @@ def Sequential(i1, i2):
         img[0].append(0)
     for i in range(y):
         img[1].append(0)
-
+    for i in range(15):
+        for j in range(20):
+            row, column = SNR(a, b, p*i+p, p*j+p)
 
     # min_MAD1 = 99999
     # min_MAD2 = 99999
@@ -61,18 +63,28 @@ def Sequential(i1, i2):
 def TwoD_logarithm(i1, i2):
 
 
-def SNR(i1, i2):
-   x = i1.size[0]
-   y = i1.size[1]
+def SNR(i1, i2, r, c):
+   k = 0
+   p = 16
+   sum = []
+   sum.append([])
+   for i in range(256):
+       sum.append(0)
 
-   a = []
-   b = []
+   img = i1[r:r+8, c:c+8]
+   img.show()
 
-   result = []
-   for i in range(x*y):
-       a[i] = i2[i]*i2[i]
-       b[i] = (i1-i2)*(i1-i2)
-       result[i] = a[i]/b[i]
+   # x = i1.size[0]
+   # y = i1.size[1]
+
+   # a = []
+   # b = []
+   #
+   # result = []
+   # for i in range(x*y):
+   #     a[i] = i2[i]*i2[i]
+   #     b[i] = (i1-i2)*(i1-i2)
+   #     result[i] = a[i]/b[i]
 
 
 
