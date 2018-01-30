@@ -22,10 +22,11 @@ sequential search：
 第一張圖為reference,第三張為target,第三張為預測出來的影像
 
 作業：
-1.將圖片傳入sequential search的function，宣告一個存放預測影像的陣列img，利用迴圈將待處理的圖片及參數傳進SNR的function。
+
+<li>將圖片傳入sequential search的function，宣告一個存放預測影像的陣列img，利用迴圈將待處理的圖片及參數傳進SNR的function。
 SNR會計算出資料的SNR值，算出並回傳最佳座標回sequential。
-target會利用回傳的座標找尋該位置的最佳相似影像並存入img，完成預測。
-2.2D logarithm search尚未編寫。
+target會利用回傳的座標找尋該位置的最佳相似影像並存入img，完成預測。</il>
+<il>2D logarithm search尚未編寫。</il>
 
 遇到問題：
 在把影像轉為陣列時可能變成一串陣列，造成後面許多bug；檢查並嘗試修改，但仍無法完整除蟲。
