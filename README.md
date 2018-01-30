@@ -8,13 +8,16 @@ Assignment III
 
 sequential search：
 設置一個search window在要預測的區塊，在用16X16的microblock從reference中找和target中相像的區塊。
+
 ![Alt text](https://i.imgur.com/vFvqjSx.jpg)
  
 2D logarithm search:
 先在影像中設置一個九宮格，當某一格和要尋找的相似時，再以此格為中心點做一個九宮格，依此類推。
+
 ![Alt text](https://i.imgur.com/PgzpAtD.jpg)
 
 作業將教授給的兩張圖片，透過兩個演算法預測過程影像，其結果應如下：
+
 ![Alt text](https://i.imgur.com/lhKaX0N.png)
 第一張圖為reference,第三張為target,第三張為預測出來的影像
 
@@ -26,7 +29,8 @@ target會利用回傳的座標找尋該位置的最佳相似影像並存入img�
 
 遇到問題：
 在把影像轉為陣列時可能變成一串陣列，造成後面許多bug；檢查並嘗試修改，但仍無法完整除蟲。
-![Alt text](https://i.imgur.com/lmQBM5A.jpg)
+
+![Alt text](https://i.imgur.com/ompXbjt.jpg)
 
 ------------------------------------------------------------------------
 Assignment II
