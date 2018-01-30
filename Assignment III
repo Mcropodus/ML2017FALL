@@ -7,21 +7,21 @@ def Sequential(i1, i2):
     y = 320
     p = 16 # 2p + 1 = 31, p = 15
 
-    a = []
-    a.append([])
-    a.append([])
-    b = []
-    b.append([])
-    b.append([])
-
-    for i in range(1000): # initial a and b
-        a[0].append(0)
-        a[1].append(0)
-        b[0].append(0)
-        b[1].append(0)
-    np.uint8(a)
-    np.uint8(b)
-
+    # a = []
+    # a.append([])
+    # a.append([])
+    # b = []
+    # b.append([])
+    # b.append([])
+    #
+    # for i in range(1000): # initial a and b
+    #     a[0].append(0)
+    #     a[1].append(0)
+    #     b[0].append(0)
+    #     b[1].append(0)
+    # np.uint8(a)
+    # np.uint8(b)
+    #
     # for i in range(x):
     #     for j in range(y):
     #         a[p+i, p+j] =i1[i, j]
