@@ -2,11 +2,9 @@ from PIL import Image
 import numpy as np
 
 def Sequential(i1, i2):
-    im1 = np.asarray(i1) # reference
-    im2 = np.asarray(i2) # target
 
-    x = i1.size[0]
-    y = i1.size[1]
+    x = 240
+    y = 320
     p = 16 # 2p + 1 = 31, p = 15
 
     a = []
@@ -21,11 +19,13 @@ def Sequential(i1, i2):
         a[1].append(0)
         b[0].append(0)
         b[1].append(0)
+    np.uint8(a)
+    np.uint8(b)
 
-    for i in range(x):
-        for j in range(y):
-            a[p+i, p+j] =im1[i, j]
-            b[p+i, p+j] =im2[i, j]
+    # for i in range(x):
+    #     for j in range(y):
+    #         a[p+i, p+j] =i1[i, j]
+    #         b[p+i, p+j] =i2[i, j]
     
     # a.show()
     # b.show()
@@ -39,7 +39,10 @@ def Sequential(i1, i2):
         img[1].append(0)
     for i in range(15):
         for j in range(20):
-            row, column = SNR(a, b, p*i+p, p*j+p)
+            row, column = SNR(i1, i2, p*i+p, p*j+p)
+            img[p*i:p*i+p, p*j:p*j+p] = b[row-8:row+8, column-8:column+8]
+
+    img.show()
 
     # min_MAD1 = 99999
     # min_MAD2 = 99999
@@ -60,11 +63,11 @@ def Sequential(i1, i2):
     #
     # i1.show()
 
-def TwoD_logarithm(i1, i2):
+#def TwoD_logarithm(i1, i2):
 
 
 def SNR(i1, i2, r, c):
-   k = 0
+   n = 0
    p = 16
    sum = []
    sum.append([])
@@ -72,8 +75,24 @@ def SNR(i1, i2, r, c):
        sum.append(0)
 
    img = i1[r:r+8, c:c+8]
-   img.show()
+   # img.show()
+   for i in range(p):
+       for j in range(p):
+           image = i2[r+i-8:r+i+8, c+j-8:c+j+8]
 
+           img2 = image
+           for k in range(256):
+               sum[n] += (img[k]/256-img2[k]/256)*(img[k]/256-img2[k]/256)
+           p += 1
+       for i in range(256):
+           min = np.min(sum)
+
+           if sum[i] == min:
+               n = i
+               break
+       column = p%16+c
+       row = p%16+r
+       return row, column
    # x = i1.size[0]
    # y = i1.size[1]
 
@@ -91,8 +110,10 @@ def SNR(i1, i2, r, c):
 reference = Image.open('i1.jpg').convert('L')
 target = Image.open('i2.jpg').convert('L')
 
+im1 = np.asarray(reference) # reference
+im2 = np.asarray(target) # target
 
 #reference.show()
-Sequential(reference, target)
+Sequential(im1, im2)
 #TwoD_logarithm(im1, im2)
 #SNR(im1, im2)
